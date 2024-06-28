@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+Projet : Extraire les Informations sur un Produit à Partir d'une Image ou d'un PDF
+Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cette application React vous permet d'extraire les détails d'un produit, tels que le nom, le prix, la couleur et la nature (catégorie), à partir d'une image ou d'un document PDF téléchargé. Elle utilise les technologies suivantes :
 
-## Available Scripts
+React: Framework d'interface utilisateur frontale pour la construction de l'interface utilisateur.
+Tesseract.js: Bibliothèque de reconnaissance optique de caractères (OCR) open-source pour extraire le texte des images.
+pdfjs-dist: Bibliothèque JavaScript pour l'analyse et l'extraction du texte des documents PDF.
+OpenAI API (Optionnel) : Modèle de langage de grande taille (LLM) basé sur le cloud pour affiner les informations extraites grâce à une invite fine-tuned (nécessite une clé API).
+Instructions
 
-In the project directory, you can run:
+Prérequis:
 
-### `npm start`
+Node.js et npm (ou yarn) installés sur votre système.
+Une clé API OpenAI (facultatif, pour une précision accrue).
+Installation:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clonez ce dépôt.
+Naviguez dans le répertoire du projet.
+Exécutez npm install (ou yarn install) pour installer les dépendances.
+Configuration (Optionnel):
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Si vous envisagez d'utiliser OpenAI pour le raffinement, créez un fichier .env à la racine du projet et ajoutez la ligne suivante, en remplaçant YOUR_API_KEY par votre clé API OpenAI réelle :
 
-### `npm test`
+REACT_APP_OPENAI_API_KEY=YOUR_API_KEY
+Exécuter l'Application:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Démarrez le serveur de développement : npm start (ou yarn start).
+Accédez à l'application dans votre navigateur, généralement à l'adresse http://localhost:3000/.
+Utilisation
 
-### `npm run build`
+Cliquez sur le bouton "Choisir un fichier" et sélectionnez une image (.jpg, .jpeg, .png, etc.) ou un document PDF.
+Cliquez sur le bouton "Extraire et Traiter le Texte".
+Sortie
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Si le traitement réussit, l'application affichera les informations extraites sur le produit dans un format JSON, y compris :
+productName: Nom du produit (si trouvé).
+price: Prix du produit (si trouvé).
+color: Couleur du produit (si trouvée).
+nature: Catégorie du produit (si trouvée).
+En cas d'erreurs ou de problèmes pendant le traitement, l'application affichera des messages d'erreur dans la console.
+Remarques supplémentaires
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+La précision des informations extraites peut varier en fonction de la qualité de l'image ou du PDF téléchargé et de la complexité du contenu.
+L'intégration d'OpenAI offre une couche de raffinement optionnelle, susceptible d'améliorer la précision des détails extraits.
